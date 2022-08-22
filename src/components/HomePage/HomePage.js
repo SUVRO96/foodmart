@@ -12,20 +12,11 @@ function HomePage() {
 
   return (
     <div className="container mt-3">
-      <div className="text-center my-5">
-        <input
-          className="search_input text-center"
-          placeholder="Search for a dish"
-        ></input>
-        <button className="foodsearch_btn">
-          <i className="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </div>
-      <div className="d-flex justify-content-around">
+      <div className="home-content justify-content-around">
         <div>
           <h1>Welcome to Foodmart,</h1>
           <p> Now get delcious dishes at your doorstep</p>
-          <div className="text-center">
+          <div className="text-center mb-2">
             <select
               className="mt-2 py-1 px-2 text-center"
               onChange={e => updateCity(e.target.value)}

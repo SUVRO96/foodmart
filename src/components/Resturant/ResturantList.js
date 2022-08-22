@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import "./rest.css";
 import axios from "axios";
 
 function ResturantList() {
   const [restList, setRestList] = useState([]);
   const { city } = useParams();
+  // const navigate = useNavigate();
   // console.log(city);
 
-  console.log();
+  // const toMenu = id => {
+  //   navigate(`/restaurant/${id}`);
+  // };
+
   // const tempData = useLocation();
   const callApi = async () => {
     // console.log(city);
@@ -25,30 +30,39 @@ function ResturantList() {
   return (
     <div className="container">
       <h3>Restaurants in {city}:</h3>
+      <hr />
       <div className="row flex-wrap">
         {restList.length > 0 ? (
           restList.map(rest => (
             <div
+              id="card"
               className="card mx-3"
               style={{ width: "18rem", height: "20rem" }}
               key={rest.rest_id}
             >
-              <img className="card-img-top" src={rest.image} alt="rest" />
-              <div className="card-body">
-                <Link
-                  to={`/restaurant/${rest.rest_id}`}
-                  style={{ color: "black", textDecoration: "none" }}
-                >
+              <Link
+                to={`/restaurant/${rest.rest_id}`}
+                style={{
+                  color: "black",
+                  textDecoration: "none",
+                }}
+              >
+                <img
+                  className="card-img-top mt-2"
+                  src={rest.image}
+                  alt="rest"
+                />
+                <div className="card-body">
                   <h4>{rest.rest_name}</h4>
-                </Link>
-                <p className="card-text">Category: {rest.category}</p>
-              </div>
+                  <p className="card-text">Category: {rest.category}</p>
+                </div>
+              </Link>
             </div>
           ))
         ) : (
           <>
-            <p style={{ color: "red" }}>
-              No Restaurants found in this location
+            <p style={{ fontSize: "2rem" }}>
+              No restaurants avilable in this area
             </p>
             <Link to="/">
               <div style={{ cursor: "pointer" }}>

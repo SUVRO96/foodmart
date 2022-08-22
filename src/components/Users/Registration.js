@@ -5,7 +5,6 @@ import { signUpFormValidation } from "./validation";
 
 const Registration = () => {
   const fullName = useRef();
-  const userName = useRef();
   const mobile = useRef();
   const email = useRef();
   const password = useRef();
@@ -17,7 +16,6 @@ const Registration = () => {
   const registerFn = async () => {
     const url = `${process.env.REACT_APP_API_URL}/users/adduser`;
     const tempObj = {};
-    tempObj.username = userName.current.value;
     tempObj.name = fullName.current.value;
     tempObj.mobile = mobile.current.value;
     tempObj.email = email.current.value;
@@ -26,7 +24,7 @@ const Registration = () => {
     let formError = signUpFormValidation(tempObj);
     setError(formError);
     if (repassword.current.value === tempObj.password) {
-      if (formError == null && tempObj.username !== "") {
+      if (formError == null) {
         console.log("if no error");
         const response = await axios.post(url, tempObj);
         if (response.status === 201) {
@@ -99,32 +97,6 @@ const Registration = () => {
                                 }}
                               >
                                 {`*${error.name}`}
-                              </div>
-                            )}
-                          </div>
-
-                          <div className="mb-4">
-                            <div className="d-flex flex-row align-items-center">
-                              <i className="fas fa-user-gear fa-lg me-3 fa-fw"></i>
-                              <div className="form-outline flex-fill mb-0">
-                                <input
-                                  type="text"
-                                  // id="form3Example1c"
-                                  className="form-control"
-                                  placeholder="Username*"
-                                  ref={userName}
-                                />
-                              </div>
-                            </div>
-                            {error && error.username && (
-                              <div
-                                style={{
-                                  color: "red",
-                                  marginLeft: "2rem",
-                                  display: "block",
-                                }}
-                              >
-                                {`*${error.username}`}
                               </div>
                             )}
                           </div>

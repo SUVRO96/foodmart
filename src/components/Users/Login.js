@@ -1,24 +1,26 @@
 import axios from "axios";
 import React, { useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { setLoginData } from "./actionLogin";
 
 const Login = () => {
-  const username = useRef();
+  const email = useRef();
   const password = useRef();
   const errorRef = useRef();
   const { REACT_APP_API_URL } = process.env;
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const loginData = useSelector(state => state.login);
+  console.log(loginData);
 
   const loginFn = async () => {
     const tempObj = {};
-    tempObj.username = username.current.value;
+    tempObj.email = email.current.value;
     tempObj.password = password.current.value;
     const url = `${REACT_APP_API_URL}/users/login`;
     console.log(url);
-    if (tempObj.username !== "" && tempObj.password !== "") {
+    if (tempObj.email !== "" && tempObj.password !== "") {
       try {
         const response = await axios.post(url, tempObj);
         if (response.status === 200) {
@@ -26,8 +28,11 @@ const Login = () => {
           console.log("login successful");
 
           dispatch(setLoginData(response.data));
-          console.log(response.data);
-          navigate("/");
+          if (loginData.loginUrl) {
+            navigate(loginData.loginUrl);
+          } else {
+            navigate("/");
+          }
         }
       } catch (err) {
         // console.log(err.response);
@@ -50,13 +55,13 @@ const Login = () => {
             <div className="form-data text-center">
               <h3>Login:</h3>
               <div className="forms-inputs mb-4 text-center">
-                <i className="fas fa-user-gear fa-lg me-3 fa-fw"></i>
+                <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                 <input
                   className="w-75 p-1"
                   autoComplete="off"
                   type="text"
-                  placeholder="username"
-                  ref={username}
+                  placeholder="e-mail"
+                  ref={email}
                 />
               </div>
               <div className="forms-inputs mb-4 text-center">
@@ -75,7 +80,7 @@ const Login = () => {
                 </div>
               </div>
               <div className="mb-3 text-center">
-                <button className="btn btn-dark w-25" onClick={loginFn}>
+                <button className="login-btn btn btn-dark" onClick={loginFn}>
                   Login
                 </button>
               </div>

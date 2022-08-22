@@ -21,7 +21,7 @@ const Footer = () => {
               <div className="col-md-2">
                 <h6 className="text-uppercase font-weight-bold">
                   <Link to="#!" className="text-white">
-                    Products
+                    Client portal
                   </Link>
                 </h6>
               </div>

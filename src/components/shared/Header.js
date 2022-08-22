@@ -1,13 +1,30 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import Banner from "../assets/images/foodBanner.jpg";
+import { setlogout } from "../Users/actionLogin";
 
 const Header = () => {
   const loginUserData = useSelector(state => state.login);
-  console.log(loginUserData.loginDataRedux);
+  // console.log(loginUserData.loginDataRedux);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [showMenu, setShowmenu] = useState(false);
+  const logoutFn = () => {
+    console.log("-----logout hit------");
+    if (window.confirm("Sure to logout?")) {
+      dispatch(setlogout());
+    }
+  };
+
+  const toLocation = locate => {
+    setShowmenu(false);
+    navigate(locate);
+  };
+
   return (
     <div
+      className="header-container"
       style={{
         backgroundImage: `url(${Banner})`,
         backgroundSize: "cover",
@@ -15,57 +32,135 @@ const Header = () => {
         color: "white",
       }}
     >
-      <nav>
-        <ul className="nav justify-content-end">
-          <li className="nav-item align-self-start">
-            <Link to="/" className="nav-link">
-              <i className="fa-solid fa-house"></i>
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/" className="nav-link">
-              About us
-            </Link>
-          </li>
-          {loginUserData.loginData ? (
+      {loginUserData.loginDataRedux && (
+        <span className="mobile-username">
+          <i className="fa-solid fa-user mx-1 p-1 border border-white rounded-circle"></i>
+          {loginUserData.loginDataRedux.username}
+        </span>
+      )}
+      <nav className={showMenu ? "show-main-menu" : "main-nav"}>
+        <ul class="nav-menu nav justify-content-end">
+          {loginUserData.loginDataRedux ? (
             <>
-              <li className="nav-item">
+              <li className="nav-item my-1 mobile-showoff">
+                <button
+                  className="nav-link"
+                  onClick={() => {
+                    toLocation("/");
+                  }}
+                >
+                  <i className="fa-solid fa-house menu-icon"></i>
+                </button>
+              </li>
+              <li className="nav-item my-1 mobile-show">
+                <button
+                  to="/"
+                  className="nav-link"
+                  onClick={() => {
+                    toLocation("/");
+                  }}
+                >
+                  Home
+                </button>
+              </li>
+              <li className="nav-item mobile-show">
+                <button
+                  className="nav-link"
+                  onClick={() => {
+                    toLocation("/");
+                  }}
+                >
+                  About us
+                </button>
+              </li>
+              <li className="nav-item  m-1 mobile-showoff">
                 <span className="nav-link">
-                  {loginUserData.loginData.username}
+                  <i className="fa-solid fa-user mx-1 p-1 border border-white rounded-circle"></i>
+                  {loginUserData.loginDataRedux.username}
                 </span>
               </li>
               <li className="nav-item">
-                <button to="/signup" className="nav-link">
+                <button onClick={logoutFn} className="logout-btn nav-link">
                   Log out
                 </button>
               </li>
               <li className="nav-item">
-                <Link to="/cart" className="nav-link">
+                <button
+                  to="/cart"
+                  className="nav-link"
+                  onClick={() => {
+                    toLocation("/cart");
+                  }}
+                >
                   <i className="fa-solid fa-cart-shopping"></i>
-                </Link>
+                </button>
               </li>
             </>
           ) : (
             <>
+              <li className="nav-item mobile-showoff">
+                <button
+                  to="/"
+                  className="nav-link"
+                  onClick={() => {
+                    toLocation("/");
+                  }}
+                >
+                  <i className="fa-solid fa-house"></i>
+                </button>
+              </li>
               <li className="nav-item">
-                <Link to="/login" className="nav-link">
+                <button
+                  className="nav-link"
+                  onClick={() => {
+                    toLocation("/");
+                  }}
+                >
+                  About us
+                </button>
+              </li>
+              <li className="nav-item">
+                <button
+                  className="nav-link"
+                  onClick={() => {
+                    toLocation("/login");
+                  }}
+                >
                   Login
-                </Link>
+                </button>
               </li>
               <li className="nav-item">
-                <Link to="/signup" className="nav-link">
+                <button
+                  className="nav-link"
+                  onClick={() => {
+                    toLocation("/signup");
+                  }}
+                >
                   Sign Up
-                </Link>
+                </button>
               </li>
               <li className="nav-item">
-                <Link to="/cart" className="nav-link">
+                <button
+                  className="nav-link"
+                  onClick={() => {
+                    toLocation("/cart");
+                  }}
+                >
                   <i className="fa-solid fa-cart-shopping"></i>
-                </Link>
+                </button>
               </li>
             </>
           )}
         </ul>
       </nav>
+      <div className="hamberger-menu">
+        <i
+          className="fa-solid fa-bars"
+          onClick={() => {
+            setShowmenu(!showMenu);
+          }}
+        ></i>
+      </div>
       <div
         className="d-flex flex-column justify-content-center m-3 text-center"
         style={{ color: "white" }}

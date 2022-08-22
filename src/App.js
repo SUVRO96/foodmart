@@ -10,10 +10,11 @@ import Cart from "./components/Users/Cart";
 import Registration from "./components/Users/Registration";
 import Menu from "./components/Resturant/Menu";
 import Resturant from "./components/Resturant/Resturant";
+import Order from "./components/Users/Order";
 
 function App() {
   return (
-    <>
+    <div className="app">
       <BrowserRouter>
         <Header />
         <Routes>
@@ -24,10 +25,11 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/signup" element={<Registration />} />
+          <Route path="/order" element={<Order />} />
         </Routes>
         <Footer />
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 

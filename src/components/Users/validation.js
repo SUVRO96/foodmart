@@ -6,7 +6,7 @@ function isEmailAddress(str) {
 
 const signUpFormValidation = formData => {
   const error = {};
-  const fields = ["email", "password", "name", "username"];
+  const fields = ["email", "password", "name"];
   fields.forEach(field => {
     if (!formData[`${field}`]) {
       error[[field]] = `${field} not present`;
@@ -17,13 +17,6 @@ const signUpFormValidation = formData => {
     (formData.name.length < 3 || formData.name.length > 20)
   ) {
     error["name"] = "Name should be atleast 4 chars and less than 20 chars";
-  }
-  if (
-    formData.username &&
-    (formData.username.length < 3 || formData.username.length > 10)
-  ) {
-    error["username"] =
-      "username should be atleast 4 chars and less than 10 chars";
   }
   if (
     formData.password &&

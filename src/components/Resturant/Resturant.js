@@ -9,7 +9,7 @@ const Resturant = () => {
   const [restdata, setRestData] = useState({});
 
   const callRestdata = async () => {
-    const url = `http://localhost:4000/restaurants/search/${id}`;
+    const url = `https://mysterious-headland-59178.herokuapp.com/restaurants/search/${id}`;
     console.log(url);
     const response = await axios.get(url);
     // console.log(response);
@@ -23,12 +23,32 @@ const Resturant = () => {
 
   return (
     <div className="container">
-      <div className="row">
-        <div className="d-flex justify-content-between">
-          <h1>Restaurent Name : {restdata.rest_name}</h1>
+      <hr />
+      <div className="row bg-dark border border-light rounded">
+        <div className="d-flex justify-content-start">
+          <img
+            src={restdata.image}
+            className="rest-img"
+            style={{}}
+            alt={restdata.rest_name}
+          ></img>
+          <div
+            style={{
+              color: "white",
+              marginLeft: "10px",
+              fontFamily: "'Quicksand', sans-serif",
+            }}
+          >
+            <h1 style={{ fontWeight: "600" }}>{restdata.rest_name}</h1>
+            <p>
+              {restdata.location},{restdata.category}
+            </p>
+          </div>
         </div>
+      </div>
+      <div className="row">
         <div>
-          <Menu id={id} />
+          <Menu restdata={restdata} />
         </div>
       </div>
     </div>
