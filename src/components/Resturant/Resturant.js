@@ -9,7 +9,7 @@ const Resturant = () => {
   const [restdata, setRestData] = useState({});
 
   const callRestdata = async () => {
-    const url = `https://mysterious-headland-59178.herokuapp.com/restaurants/search/${id}`;
+    const url = `${process.env.REACT_APP_API_URL}/restaurants/search/${id}`;
     console.log(url);
     const response = await axios.get(url);
     // console.log(response);

@@ -29,7 +29,7 @@ const Cart = () => {
   };
 
   const orderPlaceFn = async () => {
-    const url = "http://localhost:4000/orders/placeorder";
+    const url = `${process.env.REACT_APP_API_URL}/orders/placeorder`;
     const newDate = new Date();
     const currDate = `${newDate.getDate()}/${
       newDate.getMonth() + 1

@@ -17,7 +17,7 @@ function ResturantList() {
   const callApi = async () => {
     // console.log(city);
 
-    const url = "http://localhost:4000/restaurants/" + city;
+    const url = `${process.env.REACT_APP_API_URL}/restaurants/` + city;
     const response = await axios.get(url);
     // console.log(response.data);
     setRestList(response.data);

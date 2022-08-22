@@ -9,7 +9,8 @@ const Menu = props => {
   const [menu, setmenu] = useState([]);
   const [search, setsearch] = useState("");
   const dispatch = useDispatch();
-  const url = "http://localhost:4000/menu/search/" + restData.rest_id;
+  const url =
+    `${process.env.REACT_APP_API_URL}/menu/search/` + restData.rest_id;
   // console.log(restId);
 
   const callMenu = async () => {
