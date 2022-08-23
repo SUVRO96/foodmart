@@ -89,7 +89,7 @@ const Login = () => {
               </div>
               <div className="mb-3 text-center">
                 <p>
-                  Not an user?{" "}
+                  Not user?{" "}
                   <Link
                     to="/signup"
                     style={{ color: "green", cursor: "pointer" }}
