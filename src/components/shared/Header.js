@@ -155,7 +155,7 @@ const Header = () => {
       </nav>
       <div className="hamberger-menu">
         <i
-          className="fa-solid fa-bars"
+          className="fa-solid fa-bars border border-1 rounded px-1"
           onClick={() => {
             setShowmenu(!showMenu);
           }}
