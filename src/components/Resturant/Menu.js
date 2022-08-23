@@ -131,7 +131,11 @@ const Menu = props => {
                         onClick={() => {
                           toNavigate("/login");
                         }}
-                        style={{ color: "black" }}
+                        style={{
+                          color: "black",
+                          border: "none",
+                          backgroundColor: "whitesmoke",
+                        }}
                       >
                         Login
                       </button>

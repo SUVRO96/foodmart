@@ -1,12 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import footerBanner from "../assets/images/footerBanner.jpg";
 
 const Footer = () => {
   return (
     <div>
       <footer
-        className="text-center text-white"
-        style={{ backgroundColor: "black" }}
+        className="text-center text-white m-1"
+        style={{
+          backgroundImage: `url(${footerBanner})`,
+          background: "cover",
+        }}
       >
         <div className="container">
           <section className="mt-5">
@@ -51,7 +55,16 @@ const Footer = () => {
           </section>
 
           <hr className="my-3" />
-
+          <section className="mb-3">
+            <div className="row d-flex justify-content-center">
+              <div className="col-lg-8">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                  distinctio earum repellat quaerat voluptatibus placeat nam.
+                </p>
+              </div>
+            </div>
+          </section>
           <section className="text-center mb-3">
             <Link to="" className="text-white me-4">
               <i className="fab fa-facebook-f"></i>
