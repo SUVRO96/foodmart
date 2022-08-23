@@ -179,4 +179,12 @@
   .table {
     font-size: x-small;
   }
+  * {
+    font-size: small;
+  }
+  .menu-img {
+    height: 65px;
+    width: 65px;
+    margin: 5px;
+  }
 }
