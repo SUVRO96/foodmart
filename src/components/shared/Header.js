@@ -110,6 +110,17 @@ const Header = () => {
                   <i className="fa-solid fa-house"></i>
                 </button>
               </li>
+              <li className="nav-item my-1 mobile-show">
+                <button
+                  to="/"
+                  className="nav-link"
+                  onClick={() => {
+                    toLocation("/");
+                  }}
+                >
+                  Home
+                </button>
+              </li>
               <li className="nav-item">
                 <button
                   className="nav-link"
