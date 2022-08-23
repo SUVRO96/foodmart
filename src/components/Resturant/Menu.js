@@ -1,7 +1,10 @@
 import axios from "axios";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import nonVegLogo from "../assets/images/non-veg-logo.png";
+import vegLogo from "../assets/images/veg-logo.jpg";
+import { setUrl } from "../Users/actionLogin";
 import { addItemToCart, addRestDetails } from "./actionFood";
 
 const Menu = props => {
@@ -10,6 +13,7 @@ const Menu = props => {
   const [menu, setmenu] = useState([]);
   const [search, setsearch] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const url =
     `${process.env.REACT_APP_API_URL}/menu/search/` + restData.rest_id;
   // console.log(restId);
@@ -36,6 +40,11 @@ const Menu = props => {
     } else {
       callMenu();
     }
+  };
+
+  const toNavigate = url => {
+    dispatch(setUrl(window.location.pathname));
+    navigate(url);
   };
 
   const addCartFn = item => {
@@ -97,9 +106,7 @@ const Menu = props => {
                     <p className="menu-title">{item.food_name}</p>
                     <img
                       src={
-                        item.food_category === "non-veg"
-                          ? "https://www.kindpng.com/picc/m/151-1515155_veg-icon-png-non-veg-symbol-png-transparent.png"
-                          : "https://i.pinimg.com/736x/e4/1f/f3/e41ff3b10a26b097602560180fb91a62.jpg"
+                        item.food_category === "non-veg" ? nonVegLogo : vegLogo
                       }
                       style={{ height: "20px", width: "20px" }}
                       alt={item.food_name}
@@ -120,9 +127,14 @@ const Menu = props => {
                     </div>
                   ) : (
                     <div className="col-1 pe-2">
-                      <Link to="/login" style={{ color: "black" }}>
+                      <button
+                        onClick={() => {
+                          toNavigate("/login");
+                        }}
+                        style={{ color: "black" }}
+                      >
                         Login
-                      </Link>
+                      </button>
                     </div>
                   )}
                 </div>

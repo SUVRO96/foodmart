@@ -12,6 +12,7 @@ const Header = () => {
   const [showMenu, setShowmenu] = useState(false);
   const logoutFn = () => {
     console.log("-----logout hit------");
+    setShowmenu(false);
     if (window.confirm("Sure to logout?")) {
       dispatch(setlogout());
     }

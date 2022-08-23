@@ -52,17 +52,6 @@ const Footer = () => {
 
           <hr className="my-3" />
 
-          <section className="mb-3">
-            <div className="row d-flex justify-content-center">
-              <div className="col-lg-8">
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
-                  distinctio earum repellat quaerat voluptatibus placeat nam.
-                </p>
-              </div>
-            </div>
-          </section>
-
           <section className="text-center mb-3">
             <Link to="" className="text-white me-4">
               <i className="fab fa-facebook-f"></i>
