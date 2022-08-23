@@ -69,6 +69,7 @@ const Menu = props => {
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
+        <hr />
         <div className="row">
           {menu && (
             <div className="row m-2">
@@ -80,7 +81,7 @@ const Menu = props => {
           )}
           {menu &&
             menu.map((item, index) => (
-              <Fragment key={index}>
+              <div key={index}>
                 <div className="row m-1 justify-content-between menu-container">
                   <div className="col-1">{index + 1}.</div>
                   <div className="col-2 mx-2">
@@ -112,13 +113,13 @@ const Menu = props => {
                       </button>
                     </div>
                   ) : (
-                    <div className="col-1 my-auto">
+                    <div className="col-1 my-auto pe-2">
                       <p>Login to order food</p>
                     </div>
                   )}
                 </div>
                 <hr />
-              </Fragment>
+              </div>
             ))}
         </div>
       </div>
