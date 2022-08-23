@@ -33,7 +33,7 @@ const Header = () => {
       }}
     >
       {loginUserData.loginDataRedux && (
-        <span className="mobile-username">
+        <span className="mobile-username mt-1">
           <i className="fa-solid fa-user mx-1 p-1 border border-white rounded-circle"></i>
           {loginUserData.loginDataRedux.username}
         </span>
@@ -155,7 +155,7 @@ const Header = () => {
       </nav>
       <div className="hamberger-menu">
         <i
-          className="fa-solid fa-bars border border-1 rounded px-1"
+          className="fa-solid fa-bars border border-1 rounded px-1 mt-1"
           onClick={() => {
             setShowmenu(!showMenu);
           }}
