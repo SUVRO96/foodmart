@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import footerBanner from "../assets/images/footerBanner.jpg";
+import footerBanner from "../assets/images/footBanner.jfif";
 
 const Footer = () => {
   return (
