@@ -76,6 +76,10 @@
   width: 200px;
   margin: 10px;
 }
+.menu-cart {
+  display: flex;
+  justify-content: end;
+}
 
 .hamberger-menu {
   display: none;

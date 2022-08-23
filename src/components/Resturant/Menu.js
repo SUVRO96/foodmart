@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { addItemToCart, addRestDetails } from "./actionFood";
 
 const Menu = props => {
@@ -70,12 +71,17 @@ const Menu = props => {
           </button>
         </div>
         <hr />
+        <div className="menu-cart">
+          <Link to="/cart" style={{ color: "black", fontSize: "x-large" }}>
+            <i className="fa-solid fa-cart-shopping"></i>
+          </Link>
+        </div>
         <div className="row">
           {menu && (
-            <div className="row m-2">
+            <div className="row m-3 ms-0">
               <h3>
                 {menu.length}
-                {menu.length > 1 ? " items" : " item"}
+                {menu.length > 1 ? " items:" : " item:"}
               </h3>
             </div>
           )}
@@ -113,8 +119,10 @@ const Menu = props => {
                       </button>
                     </div>
                   ) : (
-                    <div className="col-1 my-auto pe-2">
-                      <p>Login to order food</p>
+                    <div className="col-1 pe-2">
+                      <Link to="/login" style={{ color: "black" }}>
+                        Login
+                      </Link>
                     </div>
                   )}
                 </div>
