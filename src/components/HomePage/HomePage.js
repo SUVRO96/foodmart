@@ -14,7 +14,7 @@ function HomePage() {
     <div className="container mt-3">
       <div className="home-content justify-content-around">
         <div>
-          <h1>Welcome to Foodmart,</h1>
+          <h1>Welcome to FoodKart,</h1>
           <p> Now get delcious dishes at your doorstep</p>
           <div className="text-center mb-2">
             <select
