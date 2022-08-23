@@ -170,4 +170,12 @@
     z-index: 10;
     height: 20% !important;
   }
+  .table {
+    font-size: smaller;
+  }
+}
+@media (max-width: 400px) {
+  .table {
+    font-size: x-small;
+  }
 }
