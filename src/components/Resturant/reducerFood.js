@@ -15,7 +15,6 @@ export const reducerFood = (state = initialObject, action) => {
       return { ...state, foodCart: temp };
 
     case Constants.INCREMENT_QUANTITY:
-      console.log("increment hit");
       let tempCart1 = state.foodCart.map(currItem => {
         if (currItem.food_id === payload) {
           return { ...currItem, quantity: currItem.quantity + 1 };
@@ -25,7 +24,6 @@ export const reducerFood = (state = initialObject, action) => {
       return { ...state, foodCart: tempCart1 };
 
     case Constants.DECREMENT_QUANTITY:
-      console.log("decrement hit");
       let tempCart2 = state.foodCart
         .map(currItem => {
           if (currItem.food_id === payload) {

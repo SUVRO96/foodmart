@@ -6,7 +6,6 @@ function HomePage() {
 
   const updateCity = e => {
     const city = e;
-    console.log(city);
     navigate(`/restaurantlist/${city}`);
   };
 

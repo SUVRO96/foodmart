@@ -12,8 +12,6 @@ import {
 const Cart = () => {
   const loginUserData = useSelector(state => state.login);
   const cartData = useSelector(state => state.cart);
-  console.log(cartData);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -45,7 +43,6 @@ const Cart = () => {
     try {
       const response = await axios.post(url, tempObj);
       if (response.status === 201) {
-        console.log("order placed successfully");
         dispatch(emptyCart());
         navigate("/order", { state: response.data });
       }

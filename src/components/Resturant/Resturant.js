@@ -5,20 +5,16 @@ import Menu from "./Menu";
 
 const Resturant = () => {
   const { id } = useParams();
-  // console.log(id);
   const [restdata, setRestData] = useState({});
 
   const callRestdata = async () => {
     const url = `${process.env.REACT_APP_API_URL}/restaurants/search/${id}`;
-    console.log(url);
     const response = await axios.get(url);
-    // console.log(response);
     setRestData(response.data);
   };
 
   useEffect(() => {
     callRestdata();
-    console.log(restdata);
   }, []);
 
   return (

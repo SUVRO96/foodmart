@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 
 const Order = () => {
   const { state: orderData } = useLocation();
-  console.log(orderData);
   return (
     <div className="container p-2">
       <div className="">

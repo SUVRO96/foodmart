@@ -16,20 +16,17 @@ const Menu = props => {
   const navigate = useNavigate();
   const url =
     `${process.env.REACT_APP_API_URL}/menu/search/` + restData.rest_id;
-  // console.log(restId);
 
   const callMenu = async () => {
     // const url = "http://localhost:4000/menu/search/" + restId;
     const response = await axios.get(url);
     setmenu(response.data);
-    console.log(menu);
   };
 
   const handleChange = e => {
     setsearch(e.target.value);
   };
   const handleSearch = () => {
-    console.log(search);
     if (search !== "") {
       let newMenu = menu.filter(item => {
         return item.food_name
@@ -54,7 +51,6 @@ const Menu = props => {
       city: restData.location,
     };
     item.quantity = 1;
-    console.log(item);
     dispatch(addRestDetails(restDetails));
     dispatch(addItemToCart(item));
   };

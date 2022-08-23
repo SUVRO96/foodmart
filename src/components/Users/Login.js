@@ -12,21 +12,17 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const loginData = useSelector(state => state.login);
-  console.log(loginData);
 
   const loginFn = async () => {
     const tempObj = {};
     tempObj.email = email.current.value;
     tempObj.password = password.current.value;
     const url = `${REACT_APP_API_URL}/users/login`;
-    console.log(url);
     if (tempObj.email !== "" && tempObj.password !== "") {
       try {
         const response = await axios.post(url, tempObj);
         if (response.status === 200) {
           errorRef.current.textContent = "";
-          console.log("login successful");
-
           dispatch(setLoginData(response.data));
           if (loginData.loginUrl) {
             navigate(loginData.loginUrl);
@@ -35,7 +31,6 @@ const Login = () => {
           }
         }
       } catch (err) {
-        // console.log(err.response);
         if (err.response.status === 422) {
           errorRef.current.textContent = "username or password incorrect";
         } else {

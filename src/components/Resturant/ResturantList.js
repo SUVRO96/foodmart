@@ -7,19 +7,14 @@ function ResturantList() {
   const [restList, setRestList] = useState([]);
   const { city } = useParams();
   // const navigate = useNavigate();
-  // console.log(city);
-
   // const toMenu = id => {
   //   navigate(`/restaurant/${id}`);
   // };
 
   // const tempData = useLocation();
   const callApi = async () => {
-    // console.log(city);
-
     const url = `${process.env.REACT_APP_API_URL}/restaurants/` + city;
     const response = await axios.get(url);
-    // console.log(response.data);
     setRestList(response.data);
   };
 

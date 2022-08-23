@@ -6,12 +6,10 @@ import { setlogout } from "../Users/actionLogin";
 
 const Header = () => {
   const loginUserData = useSelector(state => state.login);
-  // console.log(loginUserData.loginDataRedux);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [showMenu, setShowmenu] = useState(false);
   const logoutFn = () => {
-    console.log("-----logout hit------");
     setShowmenu(false);
     if (window.confirm("Sure to logout?")) {
       dispatch(setlogout());

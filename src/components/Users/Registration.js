@@ -25,7 +25,6 @@ const Registration = () => {
     setError(formError);
     if (repassword.current.value === tempObj.password) {
       if (formError == null) {
-        console.log("if no error");
         const response = await axios.post(url, tempObj);
         if (response.status === 201) {
           setSubmitStatus(true);
