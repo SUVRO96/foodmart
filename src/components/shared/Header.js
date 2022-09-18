@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Banner from "../assets/images/foodBanner.jpg";
+import { emptyCart } from "../Resturant/actionFood";
 import { setlogout } from "../Users/actionLogin";
 
 const Header = () => {
@@ -13,6 +14,7 @@ const Header = () => {
     setShowmenu(false);
     if (window.confirm("Sure to logout?")) {
       dispatch(setlogout());
+      dispatch(emptyCart());
     }
   };
 

@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setUrl } from "./actionLogin";
+import { setUrl, getTotal } from "./actionLogin";
 import {
   incrementQuantity,
   decrementQuantity,
@@ -54,10 +54,11 @@ const Cart = () => {
       dispatch(setUrl(window.location.pathname));
       navigate("/login");
     }
+    dispatch(getTotal);
   }, [loginUserData.loginDataRedux, dispatch, navigate]);
 
   return (
-    <div className="container">
+    <div className="container" style={{ minHeight: "40vh" }}>
       {/* <h4>Items added to Cart</h4>
       <p>You have {cartData.foodCart.length} items in your cart</p>
       <hr /> */}

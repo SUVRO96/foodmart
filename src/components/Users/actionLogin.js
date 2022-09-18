@@ -19,3 +19,9 @@ export const setUrl = url => {
     payload: url,
   };
 };
+
+export const getTotal = () => {
+  return {
+    type: Constants.GET_TOTAL,
+  };
+};

@@ -29,7 +29,9 @@
   border: 2px solid black;
   border-radius: 1.3rem 0 0 1.3rem;
 }
-
+.header-container {
+  height: 35vh;
+}
 .home-content {
   display: flex;
 }
@@ -94,12 +96,31 @@
 .mobile-show {
   display: none;
 }
-
+.cart-length {
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  background-color: burlywood;
+  font-size: small;
+  font-weight: bold;
+  position: relative;
+  bottom: 6px;
+  left: 38px;
+}
+.add-btn:active {
+  background: #60b246;
+  color: white;
+}
+/* .add-btn:focus {
+  background: #60b246;
+  color: white;
+} */
 /* .cart-btn:focus {
   box-shadow: none !important;
 } */
 
-@media (max-width: 998px) {
+@media (max-width: 800px) {
   .search_input {
     font-size: 1rem;
     width: 70%;
@@ -126,6 +147,7 @@
     padding: 5px 7px;
     margin-top: 0px;
   }
+
   .hamberger-menu {
     display: flex !important;
     justify-content: end !important;
@@ -174,13 +196,16 @@
   .table {
     font-size: smaller;
   }
+  .menu-description {
+    width: 150px;
+    max-height: 100px;
+    overflow-y: scroll;
+    text-align: justify;
+  }
 }
 @media (max-width: 400px) {
   .table {
     font-size: x-small;
-  }
-  * {
-    font-size: small;
   }
   .menu-img {
     height: 65px;

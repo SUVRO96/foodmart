@@ -22,9 +22,10 @@ const Registration = () => {
     tempObj.password = password.current.value;
 
     let formError = signUpFormValidation(tempObj);
+    console.log(formError);
     setError(formError);
     if (repassword.current.value === tempObj.password) {
-      if (formError == null) {
+      if (formError === null) {
         const response = await axios.post(url, tempObj);
         if (response.status === 201) {
           setSubmitStatus(true);
@@ -32,8 +33,6 @@ const Registration = () => {
         } else {
           errorRef.current.textContent = "Error. Plz try again.";
         }
-      } else {
-        errorRef.current.textContent = "Error. Plz fill all the values";
       }
     } else {
       errorRef.current.textContent = "Error. Password doesn't match";
@@ -50,9 +49,7 @@ const Registration = () => {
                 <div className="alert alert-success" role="alert">
                   Successfully user created...
                 </div>
-                <Link to="/login" className="btn btn-dark">
-                  Login
-                </Link>
+                <Link to="/login" className="btn btn-dark">Login</Link>
               </div>
             </div>
           </div>
@@ -99,21 +96,31 @@ const Registration = () => {
                               </div>
                             )}
                           </div>
-
-                          <div className="d-flex flex-row align-items-center mb-4">
-                            <i className="fas fa-solid fa-phone fa-lg me-3 fa-fw"></i>
-                            <div className="form-outline flex-fill mb-0">
-                              <input
-                                type="text"
-                                // id="form3Example2c"
-                                className="form-control"
-                                placeholder="Mobile No."
-                                // pattern="[789][0-9]{9}"
-                                ref={mobile}
-                              />
+                          <div className="mb-4">
+                            <div className="d-flex flex-row align-items-center">
+                              <i className="fas fa-solid fa-phone fa-lg me-3 fa-fw"></i>
+                              <div className="form-outline flex-fill mb-0">
+                                <input
+                                  type="text"
+                                  // id="form3Example2c"
+                                  className="form-control"
+                                  placeholder="Mobile No."
+                                  ref={mobile}
+                                />
+                              </div>
                             </div>
+                            {error && error.mobile && (
+                              <div
+                                style={{
+                                  color: "red",
+                                  marginLeft: "2rem",
+                                  display: "block",
+                                }}
+                              >
+                                {`*${error.mobile}`}
+                              </div>
+                            )}
                           </div>
-
                           <div className="mb-4">
                             <div className="d-flex flex-row align-items-center">
                               <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>

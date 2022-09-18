@@ -10,6 +10,7 @@ import { addItemToCart, addRestDetails } from "./actionFood";
 const Menu = props => {
   const restData = props.restdata;
   const loginUserData = useSelector(state => state.login);
+  const cartData = useSelector(state => state.cart);
   const [menu, setmenu] = useState([]);
   const [search, setsearch] = useState("");
   const dispatch = useDispatch();
@@ -77,6 +78,7 @@ const Menu = props => {
         </div>
         <hr />
         <div className="menu-cart">
+          <div className="cart-length">{cartData.foodCart.length}</div>
           <Link to="/cart" style={{ color: "black", fontSize: "x-large" }}>
             <i className="fa-solid fa-cart-shopping"></i>
           </Link>
@@ -108,7 +110,12 @@ const Menu = props => {
                       alt={item.food_name}
                     />
                     <p>₹ {item.price}</p>
-                    <p style={{ fontSize: "x-small" }}>{item.description}</p>
+                    <p
+                      className="menu-description"
+                      style={{ fontSize: "x-small" }}
+                    >
+                      {item.description}
+                    </p>
                   </div>
                   {loginUserData.loginDataRedux ? (
                     <div className="col-1">
