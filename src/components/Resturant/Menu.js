@@ -15,6 +15,7 @@ const Menu = props => {
   const [search, setsearch] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  console.log(cartData);
   const url =
     `${process.env.REACT_APP_API_URL}/menu/search/` + restData.rest_id;
 
@@ -46,14 +47,22 @@ const Menu = props => {
   };
 
   const addCartFn = item => {
-    const restDetails = {
-      rest_id: restData.rest_id,
-      rest_name: restData.rest_name,
-      city: restData.location,
-    };
-    item.quantity = 1;
-    dispatch(addRestDetails(restDetails));
-    dispatch(addItemToCart(item));
+    if (
+      cartData.foodCart.length !== 0 &&
+      restData.rest_id !== cartData.foodCart[0].rest_id
+    ) {
+      alert("please clear your cart to add food from another restaurant");
+      navigate("/cart");
+    } else {
+      const restDetails = {
+        rest_id: restData.rest_id,
+        rest_name: restData.rest_name,
+        city: restData.location,
+      };
+      item.quantity = 1;
+      dispatch(addRestDetails(restDetails));
+      dispatch(addItemToCart({ ...item, amount: item.price }));
+    }
   };
 
   useEffect(() => {

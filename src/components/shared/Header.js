@@ -40,7 +40,7 @@ const Header = () => {
         </span>
       )}
       <nav className={showMenu ? "show-main-menu" : "main-nav"}>
-        <ul class="nav-menu nav justify-content-end">
+        <ul className="nav-menu nav justify-content-end">
           {loginUserData.loginDataRedux ? (
             <>
               <li className="nav-item my-1 mobile-showoff">

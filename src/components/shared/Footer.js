@@ -24,8 +24,8 @@ const Footer = () => {
               </div>
               <div className="col-md-2">
                 <h6 className="text-uppercase font-weight-bold">
-                  <Link to="#!" className="text-white">
-                    Client portal
+                  <Link to="/addmenu" className="text-white">
+                    Add Menu
                   </Link>
                 </h6>
               </div>

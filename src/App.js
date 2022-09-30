@@ -11,6 +11,7 @@ import Registration from "./components/Users/Registration";
 import Menu from "./components/Resturant/Menu";
 import Resturant from "./components/Resturant/Resturant";
 import Order from "./components/Users/Order";
+import AddMenu from "./components/Admin/AddMenu";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/signup" element={<Registration />} />
           <Route path="/order" element={<Order />} />
+          <Route path="/addmenu" element={<AddMenu />} />
         </Routes>
         <Footer />
       </BrowserRouter>

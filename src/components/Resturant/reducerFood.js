@@ -17,7 +17,11 @@ export const reducerFood = (state = initialObject, action) => {
     case Constants.INCREMENT_QUANTITY:
       let tempCart1 = state.foodCart.map(currItem => {
         if (currItem.food_id === payload) {
-          return { ...currItem, quantity: currItem.quantity + 1 };
+          return {
+            ...currItem,
+            quantity: currItem.quantity + 1,
+            amount: currItem.price * (currItem.quantity + 1),
+          };
         }
         return currItem;
       });
@@ -30,6 +34,7 @@ export const reducerFood = (state = initialObject, action) => {
             return {
               ...currItem,
               quantity: currItem.quantity - 1,
+              amount: currItem.price * (currItem.quantity - 1),
             };
           }
           return currItem;

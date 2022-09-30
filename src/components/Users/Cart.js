@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -32,13 +32,16 @@ const Cart = () => {
     const currDate = `${newDate.getDate()}/${
       newDate.getMonth() + 1
     }/${newDate.getFullYear()}`;
+    let amount = cartData.foodCart.reduce((acc, i) => acc + i.amount, 0);
+    console.log(amount);
     const tempObj = {
       date: currDate,
       username: loginUserData.loginDataRedux.username,
       rest_id: cartData.restData.rest_id,
       rest_name: cartData.restData.rest_name,
+      fooditems: cartData.foodCart,
       city: cartData.restData.location,
-      amount: "350",
+      amount: amount,
     };
     try {
       const response = await axios.post(url, tempObj);
@@ -46,7 +49,9 @@ const Cart = () => {
         dispatch(emptyCart());
         navigate("/order", { state: response.data });
       }
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   useEffect(() => {
