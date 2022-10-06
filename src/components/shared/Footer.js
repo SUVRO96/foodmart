@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import footerBanner from "../assets/images/footBanner.jfif";
+import footerBanner from "../assets/images/footerBanner.jpg";
 
 const Footer = () => {
   return (
     <div>
       <footer
-        className="text-center text-white m-1"
+        className="text-center text-white"
         style={{
           backgroundImage: `url(${footerBanner})`,
           background: "cover",

@@ -64,7 +64,7 @@ const AddMenu = () => {
         <div className="container" data-aos="fade-up">
           <div className="row">
             <div className="col-12">
-              <h2>AddFoodMenu</h2>
+              <legend>Add Food Menu:</legend>
             </div>
           </div>
         </div>
@@ -73,10 +73,14 @@ const AddMenu = () => {
         <div className="container" data-aos="fade-up">
           <div className="row">
             <div className="col-12">
-              <div className="form-group row">
-                <label className="col-sm-2 col-form-label">Location</label>
+              <div className="form-group row mb-2">
+                <label className="col-sm-2 col-form-label">Location:</label>
                 <div className="col-sm-10">
-                  <select onChange={e => setCity(e.target.value)}>
+                  <select
+                    onChange={e => setCity(e.target.value)}
+                    className="form-select"
+                    style={{ width: "30%" }}
+                  >
                     <option value="">Select City</option>
                     <option value="delhi">Delhi</option>
                     <option value="mumbai">Mumbai</option>
@@ -85,10 +89,14 @@ const AddMenu = () => {
                   </select>
                 </div>
               </div>
-              <div className="form-group row">
-                <label className="col-sm-2 col-form-label">Restaurant</label>
+              <div className="form-group row mb-2">
+                <label className="col-sm-2 col-form-label">Restaurant:</label>
                 <div className="col-sm-10">
-                  <select ref={rest}>
+                  <select
+                    ref={rest}
+                    className="form-select"
+                    style={{ width: "30%" }}
+                  >
                     <option value="-">Select Restaurant</option>
                     {restList &&
                       restList.map(res => (
@@ -99,20 +107,28 @@ const AddMenu = () => {
                   </select>
                 </div>
               </div>
-              <div className="form-group row">
-                <label className="col-sm-2 col-form-label">Category</label>
+              <div className="form-group row mb-2">
+                <label className="col-sm-2 col-form-label">Category:</label>
                 <div className="col-sm-10">
-                  <select ref={category}>
+                  <select
+                    ref={category}
+                    className="form-select"
+                    style={{ width: "30%" }}
+                  >
                     <option value="-">Select Food Category</option>
                     <option value="non-veg">Non-Veg</option>
                     <option value="veg">Veg</option>
                   </select>
                 </div>
               </div>
-              <div className="form-group row">
-                <label className="col-sm-2 col-form-label">Type</label>
+              <div className="form-group row mb-2">
+                <label className="col-sm-2 col-form-label">Type:</label>
                 <div className="col-sm-10">
-                  <select ref={food_type}>
+                  <select
+                    ref={food_type}
+                    className="form-select"
+                    style={{ width: "30%" }}
+                  >
                     <option value="-">Select Food Type</option>
                     <option value="Pizza">Pizza</option>
                     <option value="North Indian">North Indian</option>
@@ -121,8 +137,8 @@ const AddMenu = () => {
                   </select>
                 </div>
               </div>
-              <div className="form-group row">
-                <label className="col-sm-2 col-form-label">Food Name</label>
+              <div className="form-group row mb-2">
+                <label className="col-sm-2 col-form-label">Food Name:</label>
                 <div className="col-sm-10">
                   <input
                     type="text"
@@ -132,8 +148,8 @@ const AddMenu = () => {
                   />
                 </div>
               </div>
-              <div className="form-group row">
-                <label className="col-sm-2 col-form-label">Image</label>
+              <div className="form-group row mb-2">
+                <label className="col-sm-2 col-form-label">Image:</label>
                 <div className="col-sm-10">
                   <input
                     type="text"
@@ -143,8 +159,8 @@ const AddMenu = () => {
                   />
                 </div>
               </div>
-              <div className="form-group row">
-                <label className="col-sm-2 col-form-label">Price</label>
+              <div className="form-group row mb-2">
+                <label className="col-sm-2 col-form-label">Price:</label>
                 <div className="col-sm-10">
                   <input
                     type="number"
@@ -154,8 +170,8 @@ const AddMenu = () => {
                   />
                 </div>
               </div>
-              <div className="form-group row">
-                <label className="col-sm-2 col-form-label">Description</label>
+              <div className="form-group row mb-2">
+                <label className="col-sm-2 col-form-label">Description:</label>
                 <div className="col-sm-10">
                   <input
                     type="text"
@@ -174,6 +190,7 @@ const AddMenu = () => {
                       addMenuFood();
                     }}
                   >
+                    <i class="fa-solid fa-plus"></i>
                     Add Food
                   </button>
                 </div>
