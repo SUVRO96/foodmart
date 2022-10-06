@@ -64,9 +64,7 @@ const Menu = props => {
   };
 
   useEffect(() => {
-    if (search === "") {
-      callMenu();
-    }
+    handleSearch();
   }, [restData, search]);
 
   return (
