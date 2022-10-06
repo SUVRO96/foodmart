@@ -20,7 +20,6 @@ const Menu = props => {
     `${process.env.REACT_APP_API_URL}/menu/search/` + restData.rest_id;
 
   const callMenu = async () => {
-    // const url = "http://localhost:4000/menu/search/" + restId;
     const response = await axios.get(url);
     setmenu(response.data);
   };
@@ -30,9 +29,9 @@ const Menu = props => {
   };
   const handleSearch = () => {
     if (search !== "") {
-      let newMenu = menu.filter(item => {
-        item.food_name.toLowerCase().includes(search.trim().toLowerCase());
-      });
+      let newMenu = menu.filter(item =>
+        item.food_name.toLowerCase().includes(search.trim().toLowerCase())
+      );
       setmenu(newMenu);
     } else {
       callMenu();
