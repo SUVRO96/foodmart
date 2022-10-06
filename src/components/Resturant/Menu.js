@@ -31,9 +31,7 @@ const Menu = props => {
   const handleSearch = () => {
     if (search !== "") {
       let newMenu = menu.filter(item => {
-        return item.food_name
-          .toLowerCase()
-          .includes(search.trim().toLowerCase());
+        item.food_name.toLowerCase().includes(search.trim().toLowerCase());
       });
       setmenu(newMenu);
     } else {
