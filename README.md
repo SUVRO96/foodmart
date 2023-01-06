@@ -1,6 +1,6 @@
 ## Project Name & Pitch
 
-FoodKart 
+  FoodKart App
 
  - An application for searching foods and restaurants, built with React, Redux, JavaScript, and CSS.
  - Features:
