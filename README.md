@@ -1,4 +1,4 @@
- ## FoodKart App
+ ## [FoodKart App](https://foodkartco.netlify.app/)
 
  * An application for searching foods and restaurants, built with React, Redux, JavaScript, and CSS.
  * Features:
@@ -35,7 +35,10 @@ To Start Server:
 ## Hosting:
 
 FrontEnd:
-  [foodkart](https://foodkartco.netlify.app/)  
+  [foodkart](https://foodkartco.netlify.app/)
+
+BackEnd:
+  [api_foodkart](https://github.com/SUVRO96/api_foodmart)
 
 <!-- ## Reflection -->
 
