@@ -5,14 +5,12 @@ import axios from "axios";
 
 function ResturantList() {
   const [restList, setRestList] = useState([{
-"_id": "62d810e4c467a01b0ea2890d",
 "rest_id": "0001",
 "rest_name": "Khana Khazana",
 "location": {city},
 "image": "https://media-cdn.tripadvisor.com/media/photo-s/17/f5/39/f7/fooood-at-the-food-department.jpg",
 "category": "non-veg",
 "status": true,
-"__v": 0
 },]);
   const { city } = useParams();
   // const navigate = useNavigate();
