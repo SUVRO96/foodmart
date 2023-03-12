@@ -1,13 +1,11 @@
-## Project Name & Pitch
+ ## [FoodKart App](https://foodkartco.netlify.app/)
 
-  FoodKart App
-
- - An application for searching foods and restaurants, built with React, Redux, JavaScript, and CSS.
- - Features:
-           - searching restaurants by city or location
-           - searching food from different restaurants
-           - login and signup for users
-           - add to cart and order placement
+ * An application for searching foods and restaurants, built with React, Redux, JavaScript, and CSS.
+ * Features:
+     * searching restaurants by city or location
+     * searching food from different restaurants
+     * login and signup for users
+     * add to cart and order placement
 
 
 <!-- ## Project Screen Shot(s)
@@ -34,8 +32,13 @@ To Start Server:
 
 `npm start`  
 
-To Visit App:
-  [foodkart](https://foodkartco.netlify.app/)  
+## Hosting:
+
+FrontEnd:
+  [foodkart](https://foodkartco.netlify.app/)
+
+BackEnd:
+  [api_foodkart](https://github.com/SUVRO96/api_foodmart)
 
 <!-- ## Reflection -->
 
