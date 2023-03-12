@@ -56,6 +56,7 @@ const AddMenu = () => {
 
   useEffect(() => {
     callRestList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [city]);
 
   return (

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { signUpFormValidation } from "./validation";
 
 const Registration = () => {
@@ -12,9 +12,10 @@ const Registration = () => {
   const errorRef = useRef();
   const [submitStatus, setSubmitStatus] = useState(false);
   const [error, setError] = useState({});
+  const navigate = useNavigate();
 
   const registerFn = async () => {
-    const url = `${process.env.REACT_APP_API_URL}/users/adduser`;
+    errorRef.current.textContent = "";
     const tempObj = {};
     tempObj.name = fullName.current.value;
     tempObj.mobile = mobile.current.value;
@@ -26,12 +27,21 @@ const Registration = () => {
     setError(formError);
     if (repassword.current.value === tempObj.password) {
       if (formError === null) {
-        const response = await axios.post(url, tempObj);
-        if (response.status === 201) {
-          setSubmitStatus(true);
-          errorRef.current.textContent = "";
+        const url1 = `${process.env.REACT_APP_API_URL}/users/userexist`;
+        const exist = await axios.post(url1, tempObj);
+        if (exist.data) {
+          errorRef.current.textContent = "Email already in use";
         } else {
-          errorRef.current.textContent = "Error. Plz try again.";
+          const url = `${process.env.REACT_APP_API_URL}/users/adduser`;
+          const response = await axios.post(url, tempObj);
+          if (response.status === 201) {
+            console.log(response);
+            setSubmitStatus(true);
+            errorRef.current.textContent = "";
+            setTimeout(() => {
+              navigate("/login");
+            }, 1500);
+          }
         }
       }
     } else {
@@ -49,7 +59,6 @@ const Registration = () => {
                 <div className="alert alert-success" role="alert">
                   Successfully user created...
                 </div>
-                <Link to="/login" className="btn btn-dark">Login</Link>
               </div>
             </div>
           </div>

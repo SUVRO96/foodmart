@@ -15,6 +15,7 @@ const Resturant = () => {
 
   useEffect(() => {
     callRestdata();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

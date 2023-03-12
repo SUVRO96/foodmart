@@ -66,6 +66,7 @@ const Menu = props => {
     if (search === "") {
       callMenu();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [restData, search]);
 
   return (

@@ -20,6 +20,7 @@ function ResturantList() {
 
   useEffect(() => {
     callApi();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

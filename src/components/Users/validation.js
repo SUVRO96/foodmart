@@ -1,16 +1,16 @@
 const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-const mobilePattern = /^[6-9]\d{9}$/gi;
+// const mobilePattern = /^[6-9]\d{9}$/gi;
 function isEmailAddress(str) {
   return str.match(emailPattern);
 }
 
-function isMobileNumber(str) {
-  return str.match(mobilePattern);
-}
+// function isMobileNumber(str) {
+//   return str.match(mobilePattern);
+// }
 
 const signUpFormValidation = formData => {
   const error = {};
-  const fields = ["email", "password", "name", "mobile"];
+  const fields = ["email", "password", "name"];
   fields.forEach(field => {
     if (!formData[`${field}`]) {
       error[[field]] = `${field} not present`;
@@ -33,9 +33,9 @@ const signUpFormValidation = formData => {
   if (formData.email && isEmailAddress(formData.email) === null) {
     error["email"] = "Not a valid email";
   }
-  if (formData.mobile && isMobileNumber(formData.mobile) === null) {
-    error["mobile"] = "Not a valid Mobile number";
-  }
+  // if (formData.mobile && isMobileNumber(formData.mobile) === null) {
+  //   error["mobile"] = "Not a valid Mobile number";
+  // }
   if (Object.keys(error).length === 0) return null;
   return error;
 };
